@@ -7,10 +7,6 @@ import Heading from '../components/typography/Heading';
 storiesOf('Heading', module).add(
     'as default',
     withInfo('')(() => {
-        return (
-            <React.Fragment>
-                <Heading>Lorem Ipsum Dolor Sit</Heading>
-            </React.Fragment>
-        );
+        return <Heading>Lorem Ipsum Dolor Sit</Heading>;
     })
 );

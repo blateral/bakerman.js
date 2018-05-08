@@ -8,16 +8,34 @@ interface Props {
 }
 
 // Styles
-
-const makeView = (tagName: Props['as']) => styled(tagName || 'h1')`
+const makeView = (tagName: Props['as'] = 'h1') => styled(tagName)`
     margin: 0;
     padding: 0;
 `;
 
+const Huge = styled.span`
+    font-size: 38px;
+    text-transform: uppercase;
+`;
+
+const Subview: React.StatelessComponent<Props> = props => {
+    switch (props.type) {
+        case 'huge':
+            return <Huge>{props.children}</Huge>;
+
+        default:
+            return <span>{props.children}</span>;
+    }
+};
+
 const Heading: React.StatelessComponent<Props> = props => {
     const View = makeView(props.as);
 
-    return <View>{props.children}</View>;
+    return (
+        <View>
+            <Subview type={props.type}>{props.children}</Subview>
+        </View>
+    );
 };
 
 Heading.defaultProps = {
