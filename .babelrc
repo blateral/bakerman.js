@@ -6,5 +6,6 @@
                 "ssr": true
             }
         ]
-    ]
+    ],
+    "presets": ["next/babel", "@zeit/next-typescript/babel"]
 }
