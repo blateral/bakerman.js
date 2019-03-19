@@ -17,5 +17,5 @@
         "noUnusedLocals": true,
         "allowSyntheticDefaultImports": true
     },
-    "exclude": ["node_modules", ".next"]
+    "exclude": ["node_modules"]
 }
