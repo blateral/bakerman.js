@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
-        "module": "esnext",
+        "module": "commonjs",
         "target": "es5",
-        "lib": ["es5", "es6", "es7", "es2017", "dom"],
-        "sourceMap": true,
-        "allowJs": true,
-        "jsx": "react",
         "moduleResolution": "node",
+        "lib": ["es2015", "es2016", "es2017", "dom"],
+        "sourceMap": true,
+        "allowJs": false,
+        "jsx": "react",
         "rootDir": "src",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
@@ -17,5 +17,5 @@
         "noUnusedLocals": true,
         "allowSyntheticDefaultImports": true
     },
-    "exclude": ["node_modules", ".next"]
+    "exclude": ["node_modules"]
 }
