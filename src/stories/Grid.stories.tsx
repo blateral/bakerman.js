@@ -19,7 +19,7 @@ const ExampleCol = (props: any) => {
     );
 };
 
-storiesOf('Base > Grid', module)
+storiesOf('Base / Grid', module)
     .add(
         'default',
         withInfo('')(() => {

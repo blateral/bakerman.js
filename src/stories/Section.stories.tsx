@@ -14,7 +14,7 @@ const ExampleContent = () => (
     </div>
 );
 
-storiesOf('Base > Section', module)
+storiesOf('Base / Section', module)
     .add(
         'standard',
         withInfo('')(() => {

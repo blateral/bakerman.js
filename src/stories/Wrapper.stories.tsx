@@ -16,9 +16,13 @@ const ExampleContent = () => (
     </div>
 );
 
-storiesOf('Base > Wrapper', module).add(
+storiesOf('Base / Wrapper', module).add(
     'standard',
     withInfo('')(() => {
-        return <Wrapper><ExampleContent /></Wrapper>;
+        return (
+            <Wrapper>
+                <ExampleContent />
+            </Wrapper>
+        );
     })
 );
