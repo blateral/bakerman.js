@@ -39,7 +39,6 @@
         "@types/storybook__react": "^4.0.1",
         "@types/styled-components": "^4.1.12",
         "@zeit/next-typescript": "^1.1.1",
-        "babel-loader": "^8.0.5",
         "babel-plugin-styled-components": "^1.10.0",
         "fontfaceobserver": "^2.1.0",
         "next": "^8.0.3",
