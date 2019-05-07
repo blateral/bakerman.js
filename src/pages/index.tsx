@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Nl2br from '../src/components/base/nl2br';
-import Wrapper from '../src/components/base/Wrapper';
+import Nl2br from '../components/base/nl2br';
+import Wrapper from '../components/base/Wrapper';
 
 export default () => (
     <Wrapper>

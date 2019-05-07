@@ -1,7 +1,7 @@
 import * as React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import { loadFonts } from '../src/utils/fontloader';
+import { loadFonts } from '../utils/fontloader';
 
 export default class extends App {
     componentDidMount() {
