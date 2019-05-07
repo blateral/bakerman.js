@@ -7,7 +7,7 @@
         "sourceMap": true,
         "allowJs": false,
         "jsx": "react",
-        "rootDir": "src",
+        "rootDir": "./",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
