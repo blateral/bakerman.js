@@ -20,11 +20,6 @@
         "url": "https://github.com/blateral/bakerman.js/issues"
     },
     "homepage": "https://github.com/blateral/bakerman.js#readme",
-    "prettier": {
-        "tabWidth": 4,
-        "trailingComma": "es5",
-        "singleQuote": true
-    },
     "dependencies": {
         "@babel/core": "^7.4.4",
         "@storybook/addon-actions": "^5.0.11",
