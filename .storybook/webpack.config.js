@@ -2,12 +2,15 @@ const path = require('path');
 
 module.exports = ({ config }) => {
     config.module.rules.push({
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)?$/,
         include: path.resolve(__dirname, '../src'),
         exclude: /node_modules/,
         use: [
             {
-                loader: require.resolve('ts-loader'),
+                loader: require.resolve('awesome-typescript-loader'),
+                options: {
+                    reportFiles: ['src/**/*.{ts,tsx}'],
+                },
             },
             {
                 loader: require.resolve('react-docgen-typescript-loader'),
