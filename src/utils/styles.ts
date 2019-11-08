@@ -13,6 +13,11 @@ export const spacings = {
     wrapperLarge: 1680,
 };
 
+export const fonts = {
+    primary: 'MS Comic Sans',
+    secondary: 'serif',
+};
+
 // Range Helper
 const getSizeByRange = (range: [number, number]): string =>
     `calc(${range[0]}px + (${range[1]} - ${range[0]}) * ((100vw - 300px) / (${spacings.wrapperLarge} - 320)));`;
