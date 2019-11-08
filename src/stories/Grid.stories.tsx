@@ -10,7 +10,6 @@ const ExampleCol = (props: any) => {
                 backgroundColor: 'lightblue',
                 padding: 20,
                 textAlign: 'center',
-                marginBottom: 20,
             }}
         >
             {props.children}
