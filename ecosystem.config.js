@@ -1,10 +1,9 @@
 module.exports = {
     apps: [
         {
-            name: 'app',
-            script: 'server.ts',
-            watch: true,
-            ignore_watch: ['data'],
+            name: '[insert cool title]',
+            script: 'yarn start',
+            watch: false,
             env: {
                 NODE_ENV: 'development',
             },
