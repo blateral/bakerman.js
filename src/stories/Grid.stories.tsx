@@ -42,7 +42,7 @@ storiesOf('Base / Grid', module)
             </Grid.Row>
         );
     })
-    .add('span mit Breakpoints', () => {
+    .add('span with media queries', () => {
         return (
             <Grid.Row>
                 <Grid.Col
@@ -50,6 +50,7 @@ storiesOf('Base / Grid', module)
                     medium={{
                         span: 1 / 2,
                     }}
+                    semilarge={{ span: 2 / 3 }}
                     large={{
                         span: 1 / 3,
                     }}
