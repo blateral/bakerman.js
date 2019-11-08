@@ -1,35 +1,19 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
+import { spacings, withRange } from '../../utils/styles';
 
-import { spacings, mq } from '../../utils/styles';
+const View: any = styled.section<{ indent: string; bgColor?: string }>`
+    ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-top')}
+    ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-bottom')}
+    
+    background-color: ${({ bgColor }) => bgColor || 'transparent'};
 
-interface ViewProps {
-    bgColor?: string;
-}
-
-const View: any = styled.section`
-    padding-top: ${spacings.nudge * 4}px;
-    padding-bottom: ${spacings.nudge * 4}px;
-    background-color: ${(props: ViewProps) => props.bgColor || 'transparent'};
-
-    ${props =>
+    ${({ indent }) =>
         css`        
-        &[data-ident="${props['data-ident']}"] + &[data-ident="${
-            props['data-ident']
-        }"] {
+        &[data-ident="${indent}"] + &[data-ident="${indent}"] {
                 padding-top: 0;
             }
     `}
-
-    @media ${mq.medium} {
-        padding-top: ${spacings.nudge * 6}px;
-        padding-bottom: ${spacings.nudge * 6}px;
-    }
-
-    @media ${mq.large} {
-        padding-top: ${spacings.nudge * 8}px;
-        padding-bottom: ${spacings.nudge * 8}px;
-    }
 `;
 
 const Section: React.StatelessComponent<{
@@ -41,6 +25,7 @@ const Section: React.StatelessComponent<{
             className={props.className}
             bgColor={props.bgColor}
             data-ident={props.bgColor || 'plain'}
+            indent={props.bgColor || 'plain'}
         >
             {props.children}
         </View>

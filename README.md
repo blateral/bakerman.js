@@ -10,8 +10,8 @@ aka. [b.lateral](https://blateral.com) Homepage Creator Suite 3000 🔝
 -   [ ] Copy RTE Styles
 -   [ ] Icons
 -   [x] Fontloader raus
--   [ ] Grid-System (Flexbox)
--   [ ] Wrapper `whitespace`
--   [ ] utils: Range fns
--   [ ] Section Comp modernisieren
+-   [x] Grid-System (Flexbox)
+-   [x] Wrapper `whitespace`
+-   [x] utils: Range fns
+-   [x] Section Comp modernisieren
 -   [ ] Bdot Comp
