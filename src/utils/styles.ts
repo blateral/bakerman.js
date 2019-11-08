@@ -14,8 +14,8 @@ export const spacings = {
 };
 
 export const fonts = {
-    primary: 'MS Comic Sans',
-    secondary: 'serif',
+    primary: 'serif',
+    secondary: 'sans-serif',
 };
 
 // Range Helper
