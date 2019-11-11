@@ -176,15 +176,15 @@ const StyledGrid = styled.div<GridProps>`
     ${({ valign }) =>
         valign === 'top'
             ? css`
-                  justify-content: flex-start;
+                  align-items: flex-start;
               `
             : valign === 'center'
             ? css`
-                  justify-content: center;
+                  align-items: center;
               `
             : valign === 'bottom'
             ? css`
-                  justify-content: flex-end;
+                  align-items: flex-end;
               `
             : ''}
 `;
