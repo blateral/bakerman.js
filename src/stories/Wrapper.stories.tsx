@@ -15,10 +15,14 @@ const ExampleContent = () => (
     </div>
 );
 
-storiesOf('Base / Wrapper', module).add('standard', () => {
-    return (
+storiesOf('Base / Wrapper', module)
+    .add('default', () => (
         <Wrapper>
             <ExampleContent />
         </Wrapper>
-    );
-});
+    ))
+    .add('addWhitespace', () => (
+        <Wrapper addWhitespace>
+            <ExampleContent />
+        </Wrapper>
+    ));

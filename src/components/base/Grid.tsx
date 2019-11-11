@@ -12,17 +12,19 @@ interface ColPropsSettings {
 
 interface ColProps extends ColPropsSettings {
     medium?: ColPropsSettings;
+    semilarge?: ColPropsSettings;
     large?: ColPropsSettings;
     xlarge?: ColPropsSettings;
 }
 
 const gridSettings = {
     cols: 28,
-    gutter: spacings.nudge,
+    gutter: spacings.spacer,
 };
 
 const getWidth = (props: ColProps) => {
     const mediumSpan = props.medium ? props.medium.span : 1;
+    const semilargeSpan = props.semilarge ? props.semilarge.span : 1;
     const largeSpan = props.large ? props.large.span : 1;
     const xlargeSpan = props.xlarge ? props.xlarge.span : 1;
 
@@ -30,45 +32,50 @@ const getWidth = (props: ColProps) => {
         width: ${(props.span || 1) * 100}%;
 
         ${(props: ColProps) => {
-            if (props.medium) {
-                return css`
-                    @media ${mq.medium} {
-                        width: ${(mediumSpan || 1) * 100}%;
-                    }
-                `;
-            }
-
-            return ``;
+            return props.medium
+                ? css`
+                      @media ${mq.medium} {
+                          width: ${(mediumSpan || 1) * 100}%;
+                      }
+                  `
+                : '';
         }}
 
         ${(props: ColProps) => {
-            if (props.large) {
-                return css`
-                    @media ${mq.large} {
-                        width: ${(largeSpan || 1) * 100}%;
-                    }
-                `;
-            }
-
-            return ``;
+            return props.semilarge
+                ? css`
+                      @media ${mq.semilarge} {
+                          width: ${(semilargeSpan || 1) * 100}%;
+                      }
+                  `
+                : '';
         }}
 
         ${(props: ColProps) => {
-            if (props.xlarge) {
-                return css`
-                    @media ${mq.xlarge} {
-                        width: ${(xlargeSpan || 1) * 100}%;
-                    }
-                `;
-            }
+            return props.large
+                ? css`
+                      @media ${mq.large} {
+                          width: ${(largeSpan || 1) * 100}%;
+                      }
+                  `
+                : '';
+        }}
 
-            return ``;
+        ${(props: ColProps) => {
+            return props.xlarge
+                ? css`
+                      @media ${mq.xlarge} {
+                          width: ${(xlargeSpan || 1) * 100}%;
+                      }
+                  `
+                : '';
         }}
     `;
 };
 
 const getLeftRight = (props: ColProps) => {
     const mediumMove = props.medium ? props.medium.move : 0;
+    const semilargeMove = props.semilarge ? props.semilarge.move : 0;
     const largeMove = props.large ? props.large.move : 0;
     const xlargeMove = props.xlarge ? props.xlarge.move : 0;
 
@@ -79,67 +86,75 @@ const getLeftRight = (props: ColProps) => {
         };
 
         ${(props: ColProps) => {
-            if (props.medium) {
-                return css`
-                    @media ${mq.medium} {
-                        left: ${mediumMove && mediumMove > 0
-                            ? mediumMove * 100 + '%'
-                            : 'auto'};
-                        right: ${mediumMove && mediumMove < 0
-                            ? mediumMove * -100 + '%'
-                            : 'auto'};
-                    }
-                `;
-            } else {
-                return ``;
-            }
+            return props.medium
+                ? css`
+                      @media ${mq.medium} {
+                          left: ${mediumMove && mediumMove > 0
+                              ? mediumMove * 100 + '%'
+                              : 'auto'};
+                          right: ${mediumMove && mediumMove < 0
+                              ? mediumMove * -100 + '%'
+                              : 'auto'};
+                      }
+                  `
+                : '';
         }}
 
 
         ${(props: ColProps) => {
-            if (props.large) {
-                return css`
-                    @media ${mq.large} {
-                        left: ${largeMove && largeMove > 0
-                            ? largeMove * 100 + '%'
-                            : 'auto'};
-                        right: ${largeMove && largeMove < 0
-                            ? largeMove * -100 + '%'
-                            : 'auto'};
-                    }
-                `;
-            } else {
-                return ``;
-            }
+            return props.semilarge
+                ? css`
+                      @media ${mq.semilarge} {
+                          left: ${semilargeMove && semilargeMove > 0
+                              ? semilargeMove * 100 + '%'
+                              : 'auto'};
+                          right: ${semilargeMove && semilargeMove < 0
+                              ? semilargeMove * -100 + '%'
+                              : 'auto'};
+                      }
+                  `
+                : '';
         }}
 
         ${(props: ColProps) => {
-            if (props.xlarge) {
-                return css`
-                    @media ${mq.xlarge} {
-                        left: ${xlargeMove && xlargeMove > 0
-                            ? xlargeMove * 100 + '%'
-                            : 'auto'};
-                        right: ${xlargeMove && xlargeMove < 0
-                            ? xlargeMove * -100 + '%'
-                            : 'auto'};
-                    }
-                `;
-            } else {
-                return ``;
-            }
+            return props.large
+                ? css`
+                      @media ${mq.large} {
+                          left: ${largeMove && largeMove > 0
+                              ? largeMove * 100 + '%'
+                              : 'auto'};
+                          right: ${largeMove && largeMove < 0
+                              ? largeMove * -100 + '%'
+                              : 'auto'};
+                      }
+                  `
+                : '';
+        }}
+
+        ${(props: ColProps) => {
+            return props.xlarge
+                ? css`
+                      @media ${mq.xlarge} {
+                          left: ${xlargeMove && xlargeMove > 0
+                              ? xlargeMove * 100 + '%'
+                              : 'auto'};
+                          right: ${xlargeMove && xlargeMove < 0
+                              ? xlargeMove * -100 + '%'
+                              : 'auto'};
+                      }
+                  `
+                : '';
         }}
     `;
 };
 
-const StyledCol = styled.div`
+const StyledCol = styled.div<GridProps & ColProps>`
     ${getWidth};
     ${getLeftRight};
-    padding-left: ${(props: GridProps) => props.gutter || 0}px;
-    display: inline-block;
+    padding-top: ${({ gutter }) => gutter || 0}px;
+    padding-left: ${({ gutter }) => gutter || 0}px;
+    display: block;
     position: relative;
-    font-size: 16px;
-    vertical-align: ${(props: GridProps) => props.valign || 'top'};
 `;
 
 const Col: React.StatelessComponent<ColProps> = props => {
@@ -148,27 +163,37 @@ const Col: React.StatelessComponent<ColProps> = props => {
 
 interface GridProps {
     gutter?: number;
-    valign?: 'top' | 'middle' | 'bottom';
-    children?: React.ReactNode;
+    valign?: 'top' | 'center' | 'bottom';
 }
 
-const StyledGrid = styled.div`
-    margin-left: -${(props: GridProps) => props.gutter || 0}px;
-    display: block;
-    font-size: 0;
+const StyledGrid = styled.div<GridProps>`
+    margin-top: -${({ gutter }) => gutter || 0}px;
+    margin-left: -${({ gutter }) => gutter || 0}px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    ${({ valign }) =>
+        valign === 'top'
+            ? css`
+                  align-items: flex-start;
+              `
+            : valign === 'center'
+            ? css`
+                  align-items: center;
+              `
+            : valign === 'bottom'
+            ? css`
+                  align-items: flex-end;
+              `
+            : ''}
 `;
 
-const Grid: React.StatelessComponent<GridProps> = props => {
+const Grid: React.FC<GridProps> = ({ gutter, valign, children }) => {
     return (
-        <StyledGrid gutter={props.gutter}>
-            {React.Children.map(props.children, (comp: any) => {
-                return (
-                    <StyledCol
-                        {...comp.props}
-                        gutter={props.gutter}
-                        valign={props.valign}
-                    />
-                );
+        <StyledGrid gutter={gutter} valign={valign}>
+            {React.Children.map(children, (comp: any) => {
+                return <StyledCol {...comp.props} gutter={gutter} />;
             })}
         </StyledGrid>
     );
@@ -176,7 +201,6 @@ const Grid: React.StatelessComponent<GridProps> = props => {
 
 Grid.defaultProps = {
     gutter: gridSettings.gutter,
-    valign: 'top',
 };
 
 export default {

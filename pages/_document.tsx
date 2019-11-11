@@ -1,7 +1,26 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
+import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
 
-import { ServerStyleSheet } from 'styled-components';
+const GlobalStyle = createGlobalStyle`
+     html {
+        font-size: 100%;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        margin: 0;
+        color: hotpink;
+        font-family: 'MS Comic Sans';
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+`;
 
 export default class extends Document<{
     styleTags: any;
@@ -19,11 +38,13 @@ export default class extends Document<{
         return (
             <html>
                 <Head>
-                    {this.props.styleTags}
+                    <base href="/" />
                     <meta
                         name="viewport"
                         content="width=device-width, initial-scale=1"
                     />
+                    <GlobalStyle />
+                    {this.props.styleTags}
                 </Head>
                 <body>
                     <Main />

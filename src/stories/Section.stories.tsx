@@ -14,7 +14,7 @@ const ExampleContent = () => (
 );
 
 storiesOf('Base / Section', module)
-    .add('standard', () => {
+    .add('default', () => {
         return (
             <React.Fragment>
                 <Section>
@@ -26,7 +26,7 @@ storiesOf('Base / Section', module)
             </React.Fragment>
         );
     })
-    .add('bgColor prop', () => {
+    .add('with bgColor', () => {
         return (
             <React.Fragment>
                 <Section>
