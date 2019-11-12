@@ -6,7 +6,7 @@
         "lib": ["es2015", "es2016", "es2017", "dom"],
         "sourceMap": true,
         "allowJs": false,
-        "jsx": "react",
+        "jsx": "preserve",
         "rootDir": "./",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
