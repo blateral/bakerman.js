@@ -10,6 +10,7 @@ module.exports = ({ config }) => {
                 loader: require.resolve('awesome-typescript-loader'),
                 options: {
                     reportFiles: ['src/**/*.{ts,tsx}'],
+                    configFileName: path.resolve(__dirname, './tsconfig.json'),
                 },
             },
             {
