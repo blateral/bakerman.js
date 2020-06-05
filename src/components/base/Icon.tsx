@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-export type Symbol =
+export type IconSymbol =
     | 'angle-left'
     | 'angle-right'
     | 'angle-top'
@@ -14,7 +14,7 @@ const View = styled.svg`
     vertical-align: top; /* this is maybe the most awesome and georgeous inline-block offset fix */
 `;
 
-const IconPath = ({ type }: { type?: Symbol }) => {
+const IconPath = ({ type }: { type?: IconSymbol }) => {
     if (!type) return null;
 
     switch (type) {
@@ -58,7 +58,7 @@ const IconPath = ({ type }: { type?: Symbol }) => {
 };
 
 const Icon: React.StatelessComponent<{
-    type: Symbol;
+    type: IconSymbol;
     className?: string;
 }> = ({ type, className }) => {
     return (

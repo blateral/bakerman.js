@@ -32,7 +32,7 @@ const CopyExample = () => (
         </p>
         <blockquote>
             „Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyame"
+            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyame
         </blockquote>
         <ol>
             <li>Lorem ipsum dolor sit.</li>
