@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-import { spacings } from '../../utils/styles';
+import { spacings } from 'utils/styles';
 
 const View = styled.div<{ addWhitespace?: boolean }>`
     max-width: ${spacings.wrapperLarge}px;

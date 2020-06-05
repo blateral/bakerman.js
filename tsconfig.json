@@ -8,6 +8,7 @@
         "allowJs": false,
         "jsx": "preserve",
         "rootDir": "./",
+        "baseUrl": "./src",
         "forceConsistentCasingInFileNames": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,

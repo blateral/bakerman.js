@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { fonts, mq, spacings, withRange } from '../../utils/styles';
+import { fonts, mq, spacings, withRange } from 'utils/styles';
 
 const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
     font-weight: 400;
@@ -71,13 +71,8 @@ const ViewSmall = styled(BaseStyles)`
 `;
 
 const Copy: React.FC<{
-    /** 
-    Farbe als HEX-Code aus gobal-colors
-    */
     textColor?: string;
-    /** small | regular | large */
     size?: 'small' | 'regular' | 'large';
-    /** Stellt den Text in zwei Spalten dar */
     columns?: boolean;
     className?: string;
 }> = ({ size, textColor, columns, className, children }) => {

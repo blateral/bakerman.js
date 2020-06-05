@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Icon from '../components/base/Icon';
+import Icon from 'components/base/Icon';
 
 storiesOf('Base / Icon', module)
     .add('angle-bottom', () => <Icon type="angle-bottom" />)

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Nl2br from '../src/components/base/nl2br';
-import Wrapper from '../src/components/base/Wrapper';
+import Wrapper from 'components/base/Wrapper';
+import Nl2br from 'components/base/nl2br';
 
-export default () => (
+const IndexPage = () => (
     <Wrapper>
         <h2>
             Welcome to next.
@@ -18,3 +18,5 @@ export default () => (
         </p>
     </Wrapper>
 );
+
+export default IndexPage;
