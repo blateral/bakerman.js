@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { fonts, mq, spacings, withRange } from '../../utils/styles';
+import { fonts, mq, spacings, withRange } from 'utils/styles';
 
 const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
     font-weight: 400;

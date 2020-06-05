@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Nl2br from '../components/base/nl2br';
-import Wrapper from '../components/base/Wrapper';
+import Wrapper from 'components/base/Wrapper';
+import Nl2br from 'components/base/nl2br';
 
 const IndexPage = () => (
     <Wrapper>

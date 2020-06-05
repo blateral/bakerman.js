@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Section from '../components/base/Section';
+import Section from 'components/base/Section';
 
 const ExampleContent = () => (
     <div

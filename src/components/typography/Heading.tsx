@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { fonts, mq, withRange } from '../../utils/styles';
+import { fonts, mq, withRange } from 'utils/styles';
 
 // Styles
 const base = css<{

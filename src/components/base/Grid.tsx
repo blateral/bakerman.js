@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-
-import { spacings, mq } from '../../utils/styles';
+import { spacings, mq } from 'utils/styles';
 
 interface ColPropsSettings {
     /** Normalisierte Werte zwischen 0 und 1: z.B.  12 von 28 Spalten (12 / 28) */
@@ -157,7 +156,7 @@ const StyledCol = styled.div<GridProps & ColProps>`
     position: relative;
 `;
 
-const Col: React.StatelessComponent<ColProps> = props => {
+const Col: React.StatelessComponent<ColProps> = (props) => {
     return <React.Fragment>{props.children}</React.Fragment>;
 };
 

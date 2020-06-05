@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-import { spacings, withRange } from '../../utils/styles';
+import { withRange, spacings } from 'utils/styles';
 
 const View: any = styled.section<{ indent: string; bgColor?: string }>`
     ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-top')}
@@ -19,7 +19,7 @@ const View: any = styled.section<{ indent: string; bgColor?: string }>`
 const Section: React.StatelessComponent<{
     className?: any;
     bgColor?: string;
-}> = props => {
+}> = (props) => {
     return (
         <View
             className={props.className}
