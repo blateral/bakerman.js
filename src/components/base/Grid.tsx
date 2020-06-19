@@ -154,6 +154,21 @@ const StyledCol = styled.div<GridProps & ColProps>`
     padding-left: ${({ gutter }) => gutter || 0}px;
     display: block;
     position: relative;
+
+    ${({ valign }) =>
+        valign === 'top'
+            ? css`
+                  align-self: flex-start;
+              `
+            : valign === 'center'
+            ? css`
+                  align-self: center;
+              `
+            : valign === 'bottom'
+            ? css`
+                  align-self: flex-end;
+              `
+            : ''}
 `;
 
 const Col: React.StatelessComponent<ColProps> = (props) => {
