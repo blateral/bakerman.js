@@ -2,12 +2,15 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 import { spacings, mq } from 'utils/styles';
 
-interface ColPropsSettings {
+export interface ColPropsSettings {
     /** Normalisierte Werte zwischen 0 und 1: z.B.  12 von 28 Spalten (12 / 28) */
     span?: number;
     /** Normalisierte Werte zwischen -1 und 1: z.B. -12 von 28 Spalten (-12 / 28) */
     move?: number;
+    valign?: VerticalAlign;
 }
+
+type VerticalAlign = 'top' | 'center' | 'bottom';
 
 interface ColProps extends ColPropsSettings {
     medium?: ColPropsSettings;
@@ -80,9 +83,9 @@ const getLeftRight = (props: ColProps) => {
 
     return css`
         left: ${props.move && props.move > 0 ? props.move * 100 + '%' : 'auto'};
-        right: ${
-            props.move && props.move < 0 ? props.move * -100 + '%' : 'auto'
-        };
+        right: ${props.move && props.move < 0
+            ? props.move * -100 + '%'
+            : 'auto'};
 
         ${(props: ColProps) => {
             return props.medium
@@ -98,7 +101,6 @@ const getLeftRight = (props: ColProps) => {
                   `
                 : '';
         }}
-
 
         ${(props: ColProps) => {
             return props.semilarge
@@ -155,29 +157,27 @@ const StyledCol = styled.div<GridProps & ColProps>`
     display: block;
     position: relative;
 
-    ${({ valign }) =>
-        valign === 'top'
-            ? css`
-                  align-self: flex-start;
-              `
-            : valign === 'center'
-            ? css`
-                  align-self: center;
-              `
-            : valign === 'bottom'
-            ? css`
-                  align-self: flex-end;
-              `
-            : ''}
+    align-self: ${({ valign }) => {
+        switch (valign) {
+            case 'top':
+                return 'flex-start';
+            case 'center':
+                return 'center';
+            case 'bottom':
+                return 'flex-end';
+            default:
+                return undefined;
+        }
+    }};
 `;
 
-const Col: React.StatelessComponent<ColProps> = (props) => {
+const Col: React.FC<ColProps> = (props) => {
     return <React.Fragment>{props.children}</React.Fragment>;
 };
 
 interface GridProps {
     gutter?: number;
-    valign?: 'top' | 'center' | 'bottom';
+    valign?: VerticalAlign;
 }
 
 const StyledGrid = styled.div<GridProps>`
@@ -187,20 +187,18 @@ const StyledGrid = styled.div<GridProps>`
     flex-direction: row;
     flex-wrap: wrap;
 
-    ${({ valign }) =>
-        valign === 'top'
-            ? css`
-                  align-items: flex-start;
-              `
-            : valign === 'center'
-            ? css`
-                  align-items: center;
-              `
-            : valign === 'bottom'
-            ? css`
-                  align-items: flex-end;
-              `
-            : ''}
+    align-items: ${({ valign }) => {
+        switch (valign) {
+            case 'top':
+                return 'flex-start';
+            case 'center':
+                return 'center';
+            case 'bottom':
+                return 'flex-end';
+            default:
+                return undefined;
+        }
+    }};
 `;
 
 const Grid: React.FC<GridProps> = ({ gutter, valign, children }) => {

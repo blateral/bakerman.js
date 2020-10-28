@@ -9,7 +9,20 @@ const ExampleCol = (props: any) => {
             style={{
                 backgroundColor: 'lightblue',
                 padding: 20,
-                textAlign: 'center',
+            }}
+        >
+            {props.children}
+        </div>
+    );
+};
+
+const ExampleCol2 = (props: any) => {
+    return (
+        <div
+            style={{
+                backgroundColor: 'lightblue',
+                padding: 20,
+                height: '300px',
             }}
         >
             {props.children}
@@ -129,6 +142,42 @@ storiesOf('Base / Grid', module)
                     }}
                 >
                     <ExampleCol>Aside Content</ExampleCol>
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })
+    .add('with row vertical align', () => {
+        return (
+            <Grid.Row valign="center">
+                <Grid.Col span={7 / 28}>
+                    <ExampleCol>vertical align center</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28}>
+                    <ExampleCol>vertical align center</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28}>
+                    <ExampleCol>vertical align center</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28}>
+                    <ExampleCol2></ExampleCol2>
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })
+    .add('with different col vertical aligns', () => {
+        return (
+            <Grid.Row>
+                <Grid.Col span={7 / 28} valign="center">
+                    <ExampleCol>vertical align center</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28} valign="top">
+                    <ExampleCol>vertical align top</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28} valign="bottom">
+                    <ExampleCol>vertical align bottom</ExampleCol>
+                </Grid.Col>
+                <Grid.Col span={7 / 28}>
+                    <ExampleCol2></ExampleCol2>
                 </Grid.Col>
             </Grid.Row>
         );
