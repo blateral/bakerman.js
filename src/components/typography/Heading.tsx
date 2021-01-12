@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { fonts, mq, withRange } from 'utils/styles';
 
@@ -57,7 +57,7 @@ export type HeadlineTag =
     | 'span'
     | 'div';
 
-const Heading: React.FC<{
+const Heading: FC<{
     as?: HeadlineTag;
     size?: 1 | 2;
     textColor?: string;

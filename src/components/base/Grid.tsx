@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { spacings, mq } from 'utils/styles';
 
@@ -171,7 +171,7 @@ const StyledCol = styled.div<GridProps & ColProps>`
     }};
 `;
 
-const Col: React.FC<ColProps> = (props) => {
+const Col: FC<ColProps> = (props) => {
     return <React.Fragment>{props.children}</React.Fragment>;
 };
 
@@ -201,7 +201,7 @@ const StyledGrid = styled.div<GridProps>`
     }};
 `;
 
-const Grid: React.FC<GridProps> = ({ gutter, valign, children }) => {
+const Grid: FC<GridProps> = ({ gutter, valign, children }) => {
     return (
         <StyledGrid gutter={gutter} valign={valign}>
             {React.Children.map(children, (comp: any) => {

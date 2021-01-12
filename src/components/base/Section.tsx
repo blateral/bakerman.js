@@ -1,22 +1,22 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { withRange, spacings } from 'utils/styles';
 
-const View: any = styled.section<{ indent: string; bgColor?: string }>`
+const View = styled.section<{ indent: string; bgColor?: string }>`
     ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-top')}
     ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-bottom')}
     
     background-color: ${({ bgColor }) => bgColor || 'transparent'};
 
     ${({ indent }) =>
-        css`        
-        &[data-ident="${indent}"] + &[data-ident="${indent}"] {
+        css`
+            &[data-ident='${indent}'] + &[data-ident='${indent}'] {
                 padding-top: 0;
             }
-    `}
+        `}
 `;
 
-const Section: React.StatelessComponent<{
+const Section: FC<{
     className?: any;
     bgColor?: string;
 }> = (props) => {

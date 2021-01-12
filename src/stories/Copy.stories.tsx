@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 
 import Copy from 'components/typography/Copy';
 
@@ -61,49 +61,48 @@ const Separator = () => (
     </React.Fragment>
 );
 
-storiesOf('Typography / Copy', module)
-    .add('default', () => {
-        return (
-            <Copy>
-                <CopyExample />
-            </Copy>
-        );
-    })
-    .add('with size', () => {
-        return (
-            <>
-                <Copy size="large">
-                    <CopyExample />
-                </Copy>
-                <Separator />
-                <Copy>
-                    <CopyExample />
-                </Copy>
-                <Separator />
-                <Copy size="small">
-                    <CopyExample />
-                </Copy>
-                <Separator />
-            </>
-        );
-    })
-    .add('with color', () => {
-        return (
-            <>
-                <Copy textColor={'green'}>
-                    <CopyExample />
-                </Copy>
-                <Copy textColor={'hotpink'}>
-                    <CopyExample />
-                </Copy>
-            </>
-        );
-    })
-    .add('with columns', () => {
-        return (
-            <Copy columns>
-                <CopyExample />
-                <CopyExample />
-            </Copy>
-        );
-    });
+export default {
+    title: 'Typography / Copy',
+    component: Copy,
+} as Meta;
+
+export const Default: Story = () => (
+    <Copy>
+        <CopyExample />
+    </Copy>
+);
+
+export const WithSize: Story = () => (
+    <>
+        <Copy size="large">
+            <CopyExample />
+        </Copy>
+        <Separator />
+        <Copy>
+            <CopyExample />
+        </Copy>
+        <Separator />
+        <Copy size="small">
+            <CopyExample />
+        </Copy>
+        <Separator />
+    </>
+);
+
+export const WithColor: Story = () => (
+    <>
+        <Copy textColor={'green'}>
+            <CopyExample />
+        </Copy>
+        <Copy textColor={'hotpink'}>
+            <CopyExample />
+        </Copy>
+    </>
+);
+
+export const WithColumns: Story = () => (
+    <Copy columns>
+        <CopyExample />
+        <CopyExample />
+    </Copy>
+);

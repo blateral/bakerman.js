@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const bdotColor = '#1fc2f4';
@@ -22,7 +22,7 @@ const Dot = styled.a`
     }
 `;
 
-const Bdot: React.FC<{ className?: string }> = ({ className }) => {
+const Bdot: FC<{ className?: string }> = ({ className }) => {
     return (
         <Dot className={className} href="https://blateral.com" target="_blank">
             <span>b.lateral - creative agency</span>

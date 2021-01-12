@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 
-const Nl2br: React.StatelessComponent<{
+const Nl2br: FC<{
     text: string;
-}> = props => {
+}> = (props) => {
     return (
         <React.Fragment>
             {props.text.split('\n').map((item, key) => {
