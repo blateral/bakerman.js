@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { fonts, mq, spacings, withRange } from 'utils/styles';
 
@@ -70,7 +70,7 @@ const ViewSmall = styled(BaseStyles)`
     line-height: 1.2;
 `;
 
-const Copy: React.FC<{
+const Copy: FC<{
     textColor?: string;
     size?: 'small' | 'regular' | 'large';
     columns?: boolean;

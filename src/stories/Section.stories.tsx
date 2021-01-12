@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-
+import { Meta, Story } from '@storybook/react';
 import Section from 'components/base/Section';
 
 const ExampleContent = () => (
     <div
         style={{
+            position: 'relative',
             textAlign: 'center',
         }}
     >
@@ -13,43 +13,44 @@ const ExampleContent = () => (
     </div>
 );
 
-storiesOf('Base / Section', module)
-    .add('default', () => {
-        return (
-            <React.Fragment>
-                <Section>
-                    <ExampleContent />
-                </Section>
-                <Section>
-                    <ExampleContent />
-                </Section>
-            </React.Fragment>
-        );
-    })
-    .add('with bgColor', () => {
-        return (
-            <React.Fragment>
-                <Section>
-                    <ExampleContent />
-                </Section>
-                <Section>
-                    <ExampleContent />
-                </Section>
-                <Section bgColor="hotpink">
-                    <ExampleContent />
-                </Section>
-                <Section bgColor="hotpink">
-                    <ExampleContent />
-                </Section>
-                <Section bgColor="hotpink">
-                    <ExampleContent />
-                </Section>
-                <Section bgColor="green">
-                    <ExampleContent />
-                </Section>
-                <Section bgColor="blue">
-                    <ExampleContent />
-                </Section>
-            </React.Fragment>
-        );
-    });
+export default {
+    title: 'Base / Section',
+    component: Section,
+} as Meta;
+
+export const Default: Story = () => (
+    <>
+        <Section>
+            <ExampleContent />
+        </Section>
+        <Section>
+            <ExampleContent />
+        </Section>
+    </>
+);
+
+export const WithBgColor: Story = () => (
+    <>
+        <Section>
+            <ExampleContent />
+        </Section>
+        <Section>
+            <ExampleContent />
+        </Section>
+        <Section bgColor="hotpink">
+            <ExampleContent />
+        </Section>
+        <Section bgColor="hotpink">
+            <ExampleContent />
+        </Section>
+        <Section bgColor="hotpink">
+            <ExampleContent />
+        </Section>
+        <Section bgColor="green">
+            <ExampleContent />
+        </Section>
+        <Section bgColor="blue">
+            <ExampleContent />
+        </Section>
+    </>
+);

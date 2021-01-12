@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 import { spacings } from 'utils/styles';
@@ -16,10 +16,10 @@ const View = styled.div<{ addWhitespace?: boolean }>`
         `}
 `;
 
-const Wrapper: React.StatelessComponent<{
+const Wrapper: FC<{
     addWhitespace?: boolean;
     className?: string;
-}> = ({ addWhitespace, className, children }) => {
+}> = ({ addWhitespace = false, className, children }) => {
     return (
         <View className={className} addWhitespace={addWhitespace}>
             {children}
