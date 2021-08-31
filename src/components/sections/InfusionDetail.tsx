@@ -13,6 +13,8 @@ const StyledSection = styled(Section)`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    text-transform: uppercase;
 `;
 
 const Intro = styled.div`

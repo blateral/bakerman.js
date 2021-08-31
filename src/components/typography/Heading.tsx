@@ -12,7 +12,6 @@ const base = css<{
     font-weight: 700;
     font-family: ${fonts.primary};
     color: ${({ textColor }) => textColor};
-    text-transform: uppercase;
 
     hyphens: auto;
     overflow-wrap: break-word;
