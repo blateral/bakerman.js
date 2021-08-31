@@ -71,7 +71,8 @@ const BackgroundDecorator = styled.img`
 const InfusionDetail: React.FC<{
     date: Date | string;
     details?: { label?: string; text?: string }[];
-}> = ({ date, details }) => {
+    bgImage?: { src?: string; alt?: string };
+}> = ({ date, details, bgImage }) => {
     const parsedDate = new Date(date);
     const minutes = getMinutes(parsedDate);
     return (
@@ -107,7 +108,12 @@ const InfusionDetail: React.FC<{
                     </ContentCol>
                 </ContentRow>
             </Wrapper>
-            <BackgroundDecorator src="https://picsum.photos/1920/400" />
+            {bgImage && (
+                <BackgroundDecorator
+                    src={bgImage.src}
+                    alt={bgImage.alt || ''}
+                />
+            )}
         </StyledSection>
     );
 };
