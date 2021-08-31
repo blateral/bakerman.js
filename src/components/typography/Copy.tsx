@@ -6,6 +6,7 @@ const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
     font-weight: 400;
     font-family: ${fonts.secondary};
     letter-spacing: 0;
+    text-transform: uppercase;
     hyphens: auto;
     color: ${({ textColor }) => textColor || 'inherit'};
 
