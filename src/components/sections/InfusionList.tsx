@@ -62,13 +62,21 @@ const TableData = styled.td`
     }
 `;
 
+const BackgroundDecorator = styled.img`
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+`;
+
 const InfusionList: React.FC<{
     title?: string;
     rowTitle?: string[];
     row: {
         cols: string[];
     }[];
-}> = ({ title, rowTitle, row }) => {
+    bgImage?: { src?: string; alt?: string };
+}> = ({ title, rowTitle, row, bgImage }) => {
     return (
         <StyledSection>
             <Wrapper>
@@ -111,6 +119,12 @@ const InfusionList: React.FC<{
                     </Table>
                 </Content>
             </Wrapper>
+            {bgImage && (
+                <BackgroundDecorator
+                    src={bgImage.src}
+                    alt={bgImage.alt || ''}
+                />
+            )}
         </StyledSection>
     );
 };

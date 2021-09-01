@@ -66,6 +66,7 @@ const DetailLabel = styled(Copy)`
 
 const BackgroundDecorator = styled.img`
     position: absolute;
+    z-index: -1;
     bottom: 0;
     left: 0;
 `;
