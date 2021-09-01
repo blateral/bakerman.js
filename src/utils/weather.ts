@@ -21,7 +21,7 @@ export const useWeather = (): {
     temperature: number | null;
     // symbol: WeatherSymbol | null;
 } => {
-    const [temperature, setTemp] = useState<number | null>(null);
+    const [temperature, /* setTemp */] = useState<number | null>(null);
     // const [symbol, setSymbol] = useState<WeatherSymbol | null>(null);
 
     useEffect(() => {
