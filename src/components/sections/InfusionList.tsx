@@ -2,6 +2,7 @@ import Section from 'components/base/Section';
 import Wrapper from 'components/base/Wrapper';
 import Copy from 'components/typography/Copy';
 import Heading from 'components/typography/Heading';
+import { isAfter, isSameHour } from 'date-fns';
 import * as React from 'react';
 import styled from 'styled-components';
 import { spacings } from 'utils/styles';
@@ -72,10 +73,17 @@ const InfusionList: React.FC<{
     title?: string;
     rowTitle?: string[];
     row: {
-        cols: string[];
+        cols: {
+            time: string;
+            data: string[];
+        };
     }[];
     bgImage?: { src?: string; alt?: string };
 }> = ({ title, rowTitle, row, bgImage }) => {
+    const isValidTime = (_time: string) =>
+        _time &&
+        (_time === '24:00' ||
+            _time.match(/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/));
     return (
         <StyledSection>
             <Wrapper>
@@ -98,11 +106,37 @@ const InfusionList: React.FC<{
                             </thead>
                         )}
                         <tbody>
-                            {row.map(({ cols }, i) => {
-                                return (
-                                    i < 5 && (
+                            {row
+                                .filter(({ cols }) => {
+                                    const entryTime = new Date();
+                                    if (cols.time && isValidTime(cols.time)) {
+                                        const timeParts = cols.time.split(':');
+                                        entryTime.setHours(
+                                            +timeParts[0],
+                                            +timeParts[1]
+                                        );
+                                        const currentTime = new Date();
+                                        if (
+                                            isSameHour(entryTime, currentTime)
+                                        ) {
+                                            return true;
+                                        }
+                                        if (isAfter(entryTime, currentTime)) {
+                                            return true;
+                                        }
+                                    }
+                                    return false;
+                                })
+                                .map(({ cols }, i) => {
+                                    if (i > 4) return null;
+                                    return (
                                         <TableRow key={i}>
-                                            {cols.map((col, ii) => {
+                                            <TableData>
+                                                <Copy size="large">
+                                                    {cols.time}
+                                                </Copy>
+                                            </TableData>
+                                            {cols.data.map((col, ii) => {
                                                 return (
                                                     <TableData key={ii}>
                                                         <Copy size="large">
@@ -112,9 +146,8 @@ const InfusionList: React.FC<{
                                                 );
                                             })}
                                         </TableRow>
-                                    )
-                                );
-                            })}
+                                    );
+                                })}
                             <tr></tr>
                         </tbody>
                     </Table>

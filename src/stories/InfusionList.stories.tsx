@@ -13,76 +13,94 @@ export const Default: Story = () => (
         rowTitle={['Zeit', 'Sauna', 'Aufguss', 'Stufe']}
         row={[
             {
-                cols: [
-                    '11:00',
-                    'Alle Außen Saunen | 85 – 90 °C',
-                    'Gießkannen-Aufguss',
-                    '*',
-                ],
+                cols: {
+                    time: '10:00',
+                    data: [
+                        'Alle Außen Saunen | 85 – 90 °C',
+                        'Gießkannen-Aufguss',
+                        '*',
+                    ],
+                },
             },
             {
-                cols: [
-                    '11:00',
-                    'Alle Außen Saunen | 85 – 90 °C',
-                    'Gießkannen-Aufguss',
-                    '*',
-                ],
+                cols: {
+                    time: '11:00',
+                    data: [
+                        'Alle Außen Saunen | 85 – 90 °C',
+                        'Gießkannen-Aufguss',
+                        '*',
+                    ],
+                },
             },
             {
-                cols: [
-                    '12:00',
-                    'Alle Außen Saunen | 85 – 90 °C',
-                    'Gießkannen-Aufguss',
-                    '*',
-                ],
+                cols: {
+                    time: '12:00',
+                    data: [
+                        'Alle Außen Saunen | 85 – 90 °C',
+                        'Gießkannen-Aufguss',
+                        '*',
+                    ],
+                },
             },
             {
-                cols: [
-                    '13:00',
-                    'Finnische Innen Sauna | 80 °C',
-                    'Salz-Aufguss',
-                    '***',
-                ],
+                cols: {
+                    time: '13:00',
+                    data: [
+                        'Finnische Innen Sauna | 80 °C',
+                        'Salz-Aufguss',
+                        '***',
+                    ],
+                },
             },
             {
-                cols: [
-                    '14:00',
-                    'Panorama Sauna | 95 °C',
-                    'Lemon Tree-Aufguss',
-                    '***',
-                ],
+                cols: {
+                    time: '14:00',
+                    data: [
+                        'Panorama Sauna | 95 °C',
+                        'Lemon Tree-Aufguss',
+                        '***',
+                    ],
+                },
             },
             {
-                cols: [
-                    '15:00',
-                    'Finnische Innen Sauna | 80 °C',
-                    'Wellness-Aufguss',
-                    '**',
-                ],
+                cols: {
+                    time: '15:00',
+                    data: [
+                        'Finnische Innen Sauna | 80 °C',
+                        'Wellness-Aufguss',
+                        '**',
+                    ],
+                },
             },
             {
-                cols: [
-                    '16:00',
-                    'Finnische Innen Sauna | 80 °C',
-                    'Salz-Aufguss',
-                    '***',
-                ],
+                cols: {
+                    time: '16:00',
+                    data: [
+                        'Finnische Innen Sauna | 80 °C',
+                        'Salz-Aufguss',
+                        '***',
+                    ],
+                },
             },
             {
-                cols: [
-                    '17:00',
-                    'Finnische Innen Sauna | 80 °C',
-                    'Salz-Aufguss',
-                    '***',
-                ],
+                cols: {
+                    time: '17:00',
+                    data: [
+                        'Finnische Innen Sauna | 80 °C',
+                        'Salz-Aufguss',
+                        '***',
+                    ],
+                },
             },
             {
-                cols: [
-                    '18:00',
-                    'Finnische Innen Sauna | 80 °C',
-                    'Salz-Aufguss',
-                    '***',
-                ],
+                cols: {
+                    time: '18:00',
+                    data: [
+                        'Finnische Innen Sauna | 80 °C',
+                        'Salz-Aufguss',
+                        '***',
+                    ],
+                },
             },
         ]}
         bgImage={{ src: 'https://picsum.photos/1920/300' }}
