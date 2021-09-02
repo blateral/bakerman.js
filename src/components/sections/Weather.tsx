@@ -36,6 +36,10 @@ const Icon = styled.div`
 const Temperature = styled.div`
     height: min-content;
     margin-bottom: 20px;
+
+    & > * {
+        font-weight: 700 !important;
+    }
 `;
 
 const BackgroundDecorator = styled.img`
@@ -43,6 +47,10 @@ const BackgroundDecorator = styled.img`
     z-index: -1;
     bottom: 0;
     left: 0;
+`;
+
+const Label = styled(Copy)`
+    opacity: 0.8;
 `;
 
 const Weather: React.FC<{
@@ -64,11 +72,11 @@ const Weather: React.FC<{
                         <Temperature>
                             <Heading size={1}>{temperature}°</Heading>
                         </Temperature>
-                        <Copy>
+                        <Label size="large">
                             {format(new Date(date), 'EEEE, dd. MMMM yyyy', {
                                 locale: de,
                             })}
-                        </Copy>
+                        </Label>
                     </div>
                     <div>
                         <Icon>
@@ -77,7 +85,7 @@ const Weather: React.FC<{
                         <Temperature>
                             <Heading size={1}>{lakeTemp}°</Heading>
                         </Temperature>
-                        <Copy>Bodensee-Wassertemperatur</Copy>
+                        <Label size="large">Bodensee-Wassertemperatur</Label>
                     </div>
                 </WeatherContainer>
             </Wrapper>
