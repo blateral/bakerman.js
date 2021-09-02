@@ -31,7 +31,9 @@ const base = css<{
 // *********
 const H1 = styled.h1`
     ${base};
-    font-size: 100px;
+    font-family: ${fonts.secondary};
+    font-size: 180px;
+    font-weight: 600;
     line-height: 1.11;
     letter-spacing: 0;
 `;
@@ -42,14 +44,7 @@ const H1 = styled.h1`
 // *********
 const H2 = styled.h2`
     ${base};
-    font-size: 70px;
-    line-height: 1.14;
-    letter-spacing: 0.7;
-`;
-
-const H3 = styled.h3`
-    ${base};
-    font-size: 34px;
+    font-size: 80px;
     line-height: 1.14;
     letter-spacing: 0.7;
 `;
@@ -66,7 +61,7 @@ export type HeadlineTag =
 
 const Heading: FC<{
     as?: HeadlineTag;
-    size?: 1 | 2 | 3;
+    size?: 1 | 2;
     textColor?: string;
     hyphens?: boolean;
 
@@ -82,10 +77,6 @@ const Heading: FC<{
         default:
         case 2:
             View = H2;
-            break;
-
-        case 3:
-            View = H3;
             break;
     }
 

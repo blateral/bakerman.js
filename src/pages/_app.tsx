@@ -2,6 +2,7 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { fonts } from 'utils/styles';
 
 const GlobalStyle = createGlobalStyle`
      html {
@@ -13,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         margin: 0;
         color: hotpink;
-        font-family: 'MS Comic Sans';
+        font-family: ${fonts.secondary};
     }
 
     *,

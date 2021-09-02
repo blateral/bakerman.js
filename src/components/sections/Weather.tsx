@@ -21,7 +21,7 @@ const StyledSection = styled(Section)`
 const WeatherContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     & > * + * {
         margin-left: 80px;
@@ -29,17 +29,17 @@ const WeatherContainer = styled.div`
 `;
 
 const Icon = styled.div`
-    height: min-content;
     margin-bottom: 20px;
+
+    & > * {
+        height: 96px;
+        width: 96px;
+    }
 `;
 
 const Temperature = styled.div`
     height: min-content;
     margin-bottom: 20px;
-
-    & > * {
-        font-weight: 700 !important;
-    }
 `;
 
 const BackgroundDecorator = styled.img`
@@ -72,7 +72,7 @@ const Weather: React.FC<{
                         <Temperature>
                             <Heading size={1}>{temperature}°</Heading>
                         </Temperature>
-                        <Label size="large">
+                        <Label size="small">
                             {format(new Date(date), 'EEEE, dd. MMMM yyyy', {
                                 locale: de,
                             })}
@@ -85,7 +85,7 @@ const Weather: React.FC<{
                         <Temperature>
                             <Heading size={1}>{lakeTemp}°</Heading>
                         </Temperature>
-                        <Label size="large">Bodensee-Wassertemperatur</Label>
+                        <Label size="small">Bodensee-Wassertemperatur</Label>
                     </div>
                 </WeatherContainer>
             </Wrapper>

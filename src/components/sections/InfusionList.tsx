@@ -55,7 +55,7 @@ const TableRow = styled.tr`
 const TableData = styled.td`
     border-left: 1px solid #000;
     border-top: 1px solid #000;
-    padding: 20px 80px;
+    padding: 20px;
 
     &:first-of-type {
         border-left: none;
@@ -132,14 +132,14 @@ const InfusionList: React.FC<{
                                     return (
                                         <TableRow key={i}>
                                             <TableData>
-                                                <Copy size="large">
+                                                <Copy size="regular">
                                                     {cols.time}
                                                 </Copy>
                                             </TableData>
                                             {cols.data.map((col, ii) => {
                                                 return (
                                                     <TableData key={ii}>
-                                                        <Copy size="large">
+                                                        <Copy size="regular">
                                                             {col}
                                                         </Copy>
                                                     </TableData>

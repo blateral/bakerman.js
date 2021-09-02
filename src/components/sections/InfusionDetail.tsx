@@ -10,23 +10,14 @@ import { spacings } from 'utils/styles';
 
 const StyledSection = styled(Section)`
     position: relative;
-
     padding: 80px;
-
-    display: flex;
-    align-items: center;
 
     text-transform: uppercase;
 `;
 
 const Intro = styled.div`
-    /* max-width: 60%; */
-    max-width: 80%;
-    margin-right: 0;
-    margin-left: auto;
-
     & > * + * {
-        margin-top: ${spacings.nudge * 2}px;
+        margin-top: ${spacings.nudge * 3}px;
     }
 `;
 
@@ -34,18 +25,19 @@ const ContentRow = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    margin: -40px;
 `;
 
 const ContentCol = styled.div`
-    margin: 0 auto;
+    flex: 1 0 50%;
 
-    flex: 0 0 50%;
+    padding: 40px;
 `;
 
 const DetailList = styled.ul`
-    max-width: 80%;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     list-style: none;
 `;
@@ -87,9 +79,9 @@ const InfusionDetail: React.FC<{
                 <ContentRow>
                     <ContentCol>
                         <Intro>
-                            <Heading size={3}>
+                            <Copy size="xlarge">
                                 {format(parsedDate, 'EEEE', { locale: de })}
-                            </Heading>
+                            </Copy>
                             <Heading
                                 size={2}
                             >{`Der nächste Aufguss beginnt um ${format(
@@ -105,10 +97,10 @@ const InfusionDetail: React.FC<{
                                 details.map(({ label, text }, i) => {
                                     return (
                                         <Details key={i}>
-                                            <DetailLabel size="large">
+                                            <DetailLabel size="regular">
                                                 {label}
                                             </DetailLabel>
-                                            <Copy size="large">{text}</Copy>
+                                            <Copy size="regular">{text}</Copy>
                                         </Details>
                                     );
                                 })}
