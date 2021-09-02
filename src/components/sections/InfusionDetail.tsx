@@ -10,15 +10,18 @@ import { spacings } from 'utils/styles';
 
 const StyledSection = styled(Section)`
     position: relative;
+
+    padding: 80px;
+
     display: flex;
-    flex-direction: row;
     align-items: center;
 
     text-transform: uppercase;
 `;
 
 const Intro = styled.div`
-    max-width: 60%;
+    /* max-width: 60%; */
+    max-width: 80%;
     margin-right: 0;
     margin-left: auto;
 
@@ -41,7 +44,7 @@ const ContentCol = styled.div`
 `;
 
 const DetailList = styled.ul`
-    max-width: 60%;
+    max-width: 80%;
     margin: 0 auto;
     padding: 0;
     list-style: none;
@@ -84,11 +87,11 @@ const InfusionDetail: React.FC<{
                 <ContentRow>
                     <ContentCol>
                         <Intro>
-                            <Copy size="large">
+                            <Heading size={3}>
                                 {format(parsedDate, 'EEEE', { locale: de })}
-                            </Copy>
+                            </Heading>
                             <Heading
-                                size={1}
+                                size={2}
                             >{`Der nächste Aufguss beginnt um ${format(
                                 parsedDate,
                                 minutes <= 0 ? 'HH' : 'HH:mm',
@@ -102,8 +105,10 @@ const InfusionDetail: React.FC<{
                                 details.map(({ label, text }, i) => {
                                     return (
                                         <Details key={i}>
-                                            <DetailLabel>{label}</DetailLabel>
-                                            <Copy>{text}</Copy>
+                                            <DetailLabel size="large">
+                                                {label}
+                                            </DetailLabel>
+                                            <Copy size="large">{text}</Copy>
                                         </Details>
                                     );
                                 })}

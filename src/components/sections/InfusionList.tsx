@@ -8,16 +8,14 @@ import { spacings } from 'utils/styles';
 
 const StyledSection = styled(Section)`
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    padding: 80px;
 `;
 
 const Content = styled.div`
     margin: 0 auto;
 
     & > * + * {
-        margin-top: ${spacings.spacer * 2}px;
+        margin-top: ${spacings.spacer * 4}px;
     }
 
     text-align: center;
@@ -39,8 +37,9 @@ const TableHead = styled.th`
 `;
 
 const HeadTitle = styled(Copy)`
-    font-weight: 500;
     text-transform: uppercase;
+    font-weight: 600 !important;
+    letter-spacing: 3.7px;
 `;
 
 const TableRow = styled.tr`
@@ -81,7 +80,7 @@ const InfusionList: React.FC<{
         <StyledSection>
             <Wrapper>
                 <Content>
-                    <Heading size={1}>{title}</Heading>
+                    <Heading size={2}>{title}</Heading>
                     <Table>
                         {rowTitle && (
                             <thead>
@@ -106,7 +105,9 @@ const InfusionList: React.FC<{
                                             {cols.map((col, ii) => {
                                                 return (
                                                     <TableData key={ii}>
-                                                        <Copy>{col}</Copy>
+                                                        <Copy size="large">
+                                                            {col}
+                                                        </Copy>
                                                     </TableData>
                                                 );
                                             })}

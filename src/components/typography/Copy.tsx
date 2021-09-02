@@ -50,7 +50,7 @@ const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
 // Large
 // *****
 const ViewLarge = styled(BaseStyles)`
-    ${withRange([16, 20], 'font-size')}
+    font-size: 24px;
     line-height: 1.44;
 `;
 
