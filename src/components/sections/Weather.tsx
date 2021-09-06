@@ -1,3 +1,4 @@
+import Water from 'components/base/icons/Water';
 import WeatherIcon, { IconType } from 'components/base/icons/WeatherIcon';
 import Section from 'components/base/Section';
 import Wrapper from 'components/base/Wrapper';
@@ -91,7 +92,7 @@ const Weather: React.FC<{
                     <div>
                         <MainContainer>
                             <Icon>
-                                <WeatherIcon type={weatherIcon} />
+                                <Water />
                             </Icon>
                             <Temperature>
                                 <Heading size={1}>{lakeTemp}°</Heading>
