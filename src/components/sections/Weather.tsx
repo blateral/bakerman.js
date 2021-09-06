@@ -7,6 +7,7 @@ import format from 'date-fns/format';
 import { de } from 'date-fns/locale';
 import * as React from 'react';
 import styled from 'styled-components';
+import BgImage from './../../../public/Bodensee_Therme_Welle-02 1.jpg';
 
 const StyledSection = styled(Section)`
     position: relative;
@@ -59,8 +60,7 @@ const Weather: React.FC<{
     temperature: string;
     weatherIcon: IconType;
     lakeTemp?: string;
-    bgImage?: { src?: string; alt?: string };
-}> = ({ date, temperature, lakeTemp, weatherIcon, bgImage }) => {
+}> = ({ date, temperature, lakeTemp, weatherIcon }) => {
     return (
         <StyledSection>
             <Wrapper>
@@ -89,12 +89,7 @@ const Weather: React.FC<{
                     </div>
                 </WeatherContainer>
             </Wrapper>
-            {bgImage && (
-                <BackgroundDecorator
-                    src={bgImage.src}
-                    alt={bgImage.alt || ''}
-                />
-            )}
+            <BackgroundDecorator src={BgImage} />
         </StyledSection>
     );
 };

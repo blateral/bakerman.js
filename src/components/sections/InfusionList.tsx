@@ -6,6 +6,7 @@ import { isAfter, isSameHour } from 'date-fns';
 import * as React from 'react';
 import styled from 'styled-components';
 import { spacings } from 'utils/styles';
+import BgImage from './../../../public/Bodensee_Therme_Welle-02 1.jpg';
 
 const StyledSection = styled(Section)`
     position: relative;
@@ -31,6 +32,7 @@ const Table = styled.table`
 
 const TableHead = styled.th`
     padding: 20px 80px;
+    padding-left: 20px;
 
     & + & {
         border-left: 1px solid #000;
@@ -65,8 +67,8 @@ const TableData = styled.td`
 const BackgroundDecorator = styled.img`
     position: absolute;
     z-index: -1;
-    bottom: 0;
     left: 0;
+    bottom: 0;
 `;
 
 const InfusionList: React.FC<{
@@ -78,8 +80,7 @@ const InfusionList: React.FC<{
             data: string[];
         };
     }[];
-    bgImage?: { src?: string; alt?: string };
-}> = ({ title, rowTitle, row, bgImage }) => {
+}> = ({ title, rowTitle, row }) => {
     const isValidTime = (_time: string) =>
         _time &&
         (_time === '24:00' ||
@@ -153,12 +154,7 @@ const InfusionList: React.FC<{
                     </Table>
                 </Content>
             </Wrapper>
-            {bgImage && (
-                <BackgroundDecorator
-                    src={bgImage.src}
-                    alt={bgImage.alt || ''}
-                />
-            )}
+            <BackgroundDecorator src={BgImage} />
         </StyledSection>
     );
 };

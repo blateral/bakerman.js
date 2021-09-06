@@ -14,6 +14,5 @@ export const Default: Story = () => (
         temperature="26"
         lakeTemp="22"
         weatherIcon={'A' as IconType}
-        bgImage={{ src: 'https://picsum.photos/1920/300' }}
     />
 );

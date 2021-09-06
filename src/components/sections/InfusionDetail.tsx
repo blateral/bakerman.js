@@ -7,6 +7,7 @@ import { de } from 'date-fns/locale';
 import * as React from 'react';
 import styled from 'styled-components';
 import { spacings } from 'utils/styles';
+import BgImage from './../../../public/Bodensee_Therme_Welle-02 1.jpg';
 
 const StyledSection = styled(Section)`
     position: relative;
@@ -69,8 +70,7 @@ const BackgroundDecorator = styled.img`
 const InfusionDetail: React.FC<{
     date: Date | string;
     details?: { label?: string; text?: string }[];
-    bgImage?: { src?: string; alt?: string };
-}> = ({ date, details, bgImage }) => {
+}> = ({ date, details }) => {
     const parsedDate = new Date(date);
     const minutes = getMinutes(parsedDate);
     return (
@@ -108,12 +108,7 @@ const InfusionDetail: React.FC<{
                     </ContentCol>
                 </ContentRow>
             </Wrapper>
-            {bgImage && (
-                <BackgroundDecorator
-                    src={bgImage.src}
-                    alt={bgImage.alt || ''}
-                />
-            )}
+            <BackgroundDecorator src={BgImage} />
         </StyledSection>
     );
 };

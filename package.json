@@ -3,7 +3,7 @@
     "version": "1.5.2",
     "description": "",
     "scripts": {
-        "storybook": "start-storybook -p 9000 -c .storybook",
+        "storybook": "start-storybook -p 9000 -c .storybook -s ./public",
         "dev": "next dev",
         "build": "next build",
         "start": "next start -p 5000",

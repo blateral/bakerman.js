@@ -103,6 +103,5 @@ export const Default: Story = () => (
                 },
             },
         ]}
-        bgImage={{ src: 'https://picsum.photos/1920/300' }}
     />
 );
