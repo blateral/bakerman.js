@@ -16,7 +16,6 @@ const StyledSection = styled(Section)`
     align-items: center;
 
     text-transform: uppercase;
-    text-align: center;
 `;
 
 const WeatherContainer = styled.div`
@@ -29,12 +28,21 @@ const WeatherContainer = styled.div`
     }
 `;
 
+const MainContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: max-content;
+    margin: 0 auto;
+`;
+
 const Icon = styled.div`
     margin-bottom: 20px;
 
     & > * {
-        height: 96px;
-        width: 96px;
+        height: 100px;
+        width: 100px;
     }
 `;
 
@@ -66,12 +74,14 @@ const Weather: React.FC<{
             <Wrapper>
                 <WeatherContainer>
                     <div>
-                        <Icon>
-                            <WeatherIcon type={weatherIcon} />
-                        </Icon>
-                        <Temperature>
-                            <Heading size={1}>{temperature}°</Heading>
-                        </Temperature>
+                        <MainContainer>
+                            <Icon>
+                                <WeatherIcon type={weatherIcon} />
+                            </Icon>
+                            <Temperature>
+                                <Heading size={1}>{temperature}°</Heading>
+                            </Temperature>
+                        </MainContainer>
                         <Label size="small">
                             {format(new Date(date), 'EEEE, dd. MMMM yyyy', {
                                 locale: de,
@@ -79,12 +89,14 @@ const Weather: React.FC<{
                         </Label>
                     </div>
                     <div>
-                        <Icon>
-                            <WeatherIcon type={weatherIcon} />
-                        </Icon>
-                        <Temperature>
-                            <Heading size={1}>{lakeTemp}°</Heading>
-                        </Temperature>
+                        <MainContainer>
+                            <Icon>
+                                <WeatherIcon type={weatherIcon} />
+                            </Icon>
+                            <Temperature>
+                                <Heading size={1}>{lakeTemp}°</Heading>
+                            </Temperature>
+                        </MainContainer>
                         <Label size="small">Bodensee-Wassertemperatur</Label>
                     </div>
                 </WeatherContainer>
