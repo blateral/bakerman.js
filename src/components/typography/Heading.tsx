@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { fonts, mq } from 'utils/styles';
+import { fonts, mq, withRange } from 'utils/styles';
 
 // Styles
 const base = css<{
@@ -9,7 +9,7 @@ const base = css<{
 }>`
     margin: 0;
     padding: 0;
-    font-weight: 400;
+    font-weight: 700;
     font-family: ${fonts.primary};
     color: ${({ textColor }) => textColor};
 
@@ -31,9 +31,7 @@ const base = css<{
 // *********
 const H1 = styled.h1`
     ${base};
-    font-family: ${fonts.secondary};
-    font-size: 180px;
-    font-weight: 600;
+    ${withRange([28, 48], 'font-size')}
     line-height: 1.11;
     letter-spacing: 0;
 `;
@@ -44,7 +42,7 @@ const H1 = styled.h1`
 // *********
 const H2 = styled.h2`
     ${base};
-    font-size: 80px;
+    ${withRange([24, 36], 'font-size')}
     line-height: 1.14;
     letter-spacing: 0.7;
 `;

@@ -1,7 +1,11 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
+import { withRange, spacings } from 'utils/styles';
 
 const View = styled.section<{ indent: string; bgColor?: string }>`
+    ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-top')}
+    ${withRange([spacings.spacer * 2, spacings.spacer * 4], 'padding-bottom')}
+    
     background-color: ${({ bgColor }) => bgColor || 'transparent'};
 
     ${({ indent }) =>
@@ -10,17 +14,6 @@ const View = styled.section<{ indent: string; bgColor?: string }>`
                 padding-top: 0;
             }
         `}
-
-    overflow: hidden;
-
-    min-height: 1080px;
-    min-width: 1920px;
-
-    height: 1080px;
-    width: 1920px;
-
-    max-height: 1080px;
-    max-width: 1920px;
 `;
 
 const Section: FC<{

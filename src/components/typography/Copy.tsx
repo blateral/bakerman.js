@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { fonts, mq, spacings } from 'utils/styles';
+import { fonts, mq, spacings, withRange } from 'utils/styles';
 
 const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
     font-weight: 400;
@@ -47,18 +47,10 @@ const BaseStyles = styled.div<{ textColor?: string; columns?: boolean }>`
 `;
 
 // *****
-// x-large
-// *****
-const ViewXLarge = styled(BaseStyles)`
-    font-size: 45px;
-    line-height: 1.2;
-`;
-
-// *****
 // Large
 // *****
 const ViewLarge = styled(BaseStyles)`
-    font-size: 42px;
+    ${withRange([16, 20], 'font-size')}
     line-height: 1.44;
 `;
 
@@ -66,42 +58,38 @@ const ViewLarge = styled(BaseStyles)`
 // Regular
 // *******
 const ViewRegular = styled(BaseStyles)`
-    font-size: 38px;
+    ${withRange([15, 17], 'font-size')}
     line-height: 1.375;
 `;
 
-// *******
-// small
-// *******
+// *****
+// Small
+// *****
 const ViewSmall = styled(BaseStyles)`
-    font-size: 30px;
-    line-height: 1.375;
+    ${withRange([13, 15], 'font-size')}
+    line-height: 1.2;
 `;
 
 const Copy: FC<{
     textColor?: string;
-    size?: 'small' | 'regular' | 'large' | 'xlarge';
+    size?: 'small' | 'regular' | 'large';
     columns?: boolean;
     className?: string;
 }> = ({ size, textColor, columns, className, children }) => {
     let View;
 
     switch (size) {
-        case 'xlarge':
-            View = ViewXLarge;
-            break;
-
         case 'large':
             View = ViewLarge;
-            break;
-
-        case 'small':
-            View = ViewSmall;
             break;
 
         default:
         case 'regular':
             View = ViewRegular;
+            break;
+
+        case 'small':
+            View = ViewSmall;
             break;
     }
 

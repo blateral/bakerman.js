@@ -15,7 +15,7 @@ export const spacings = {
 
 export const fonts = {
     primary: 'serif',
-    secondary: "'agenda', sans-serif",
+    secondary: 'sans-serif',
 };
 
 // Range Helper
