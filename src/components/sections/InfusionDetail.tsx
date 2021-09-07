@@ -7,7 +7,7 @@ import { de } from 'date-fns/locale';
 import * as React from 'react';
 import styled from 'styled-components';
 import { spacings } from 'utils/styles';
-import BgImage from './../../../public/Bodensee_Therme_Welle-02 1.jpg';
+import BgImage from './../../../public/Welle_dark.png';
 
 const StyledSection = styled(Section)`
     position: relative;

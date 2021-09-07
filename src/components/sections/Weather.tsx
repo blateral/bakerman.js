@@ -8,7 +8,7 @@ import format from 'date-fns/format';
 import { de } from 'date-fns/locale';
 import * as React from 'react';
 import styled from 'styled-components';
-import BgImage from './../../../public/Bodensee_Therme_Welle-02 1.jpg';
+import BgImage from './../../../public/Welle_light.png';
 
 const StyledSection = styled(Section)`
     position: relative;
