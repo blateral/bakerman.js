@@ -1,9 +1,9 @@
 {
-    "name": "bakerman",
-    "version": "1.5.2",
+    "name": "uebtherme-21-web",
+    "version": "1.6.0",
     "description": "",
     "scripts": {
-        "storybook": "start-storybook -p 9000 -c .storybook",
+        "storybook": "start-storybook -p 9000 -c .storybook -s ./public",
         "dev": "next dev",
         "build": "next build",
         "start": "next start -p 5000",
@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/blateral/bakerman.js.git"
+        "url": "git+https://github.com/blateral/uebtherme-21-web.js.git"
     },
     "husky": {
         "hooks": {
@@ -22,13 +22,14 @@
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/blateral/bakerman.js/issues"
+        "url": "https://github.com/blateral/uebtherme-21-web.js/issues"
     },
-    "homepage": "https://github.com/blateral/bakerman.js#readme",
+    "homepage": "https://github.com/blateral/uebtherme-21-web.js#readme",
     "dependencies": {
         "@babel/core": "7.12.10",
         "@storybook/react": "6.1.15",
         "babel-plugin-styled-components": "1.12.0",
+        "date-fns": "^2.23.0",
         "next": "10.0.5",
         "react": "17.0.1",
         "react-dom": "17.0.1",
