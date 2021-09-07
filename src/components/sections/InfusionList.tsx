@@ -45,9 +45,9 @@ const HeadTitle = styled(Copy)`
     letter-spacing: 3.7px;
 `;
 
-const TableRow = styled.tr`
-    &:nth-child(1) {
-        background: antiquewhite;
+const TableRow = styled.tr<{ activeItem?: number }>`
+    &:nth-child(${({ activeItem }) => (activeItem ? activeItem + 1 : 1)}) {
+        background: rgba(223, 161, 133, 0.4);
         & * {
             font-weight: 700;
         }
@@ -85,6 +85,25 @@ const InfusionList: React.FC<{
         _time &&
         (_time === '24:00' ||
             _time.match(/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/));
+    const lastThreeItems = row.slice(-3);
+    const timeFilteredArray = row.filter(({ cols }) => {
+        const entryTime = new Date();
+
+        if (cols.time && isValidTime(cols.time)) {
+            const timeParts = cols.time.split(':');
+
+            entryTime.setHours(+timeParts[0], +timeParts[1]);
+            const currentTime = new Date();
+
+            if (isSameHour(entryTime, currentTime)) {
+                return true;
+            }
+            if (isAfter(entryTime, currentTime)) {
+                return true;
+            }
+        }
+        return false;
+    });
     return (
         <StyledSection>
             <Wrapper>
@@ -107,48 +126,9 @@ const InfusionList: React.FC<{
                             </thead>
                         )}
                         <tbody>
-                            {row
-                                .filter(({ cols }) => {
-                                    const entryTime = new Date();
-                                    if (cols.time && isValidTime(cols.time)) {
-                                        const timeParts = cols.time.split(':');
-                                        entryTime.setHours(
-                                            +timeParts[0],
-                                            +timeParts[1]
-                                        );
-                                        const currentTime = new Date();
-                                        if (
-                                            isSameHour(entryTime, currentTime)
-                                        ) {
-                                            return true;
-                                        }
-                                        if (isAfter(entryTime, currentTime)) {
-                                            return true;
-                                        }
-                                    }
-                                    return false;
-                                })
-                                .map(({ cols }, i) => {
-                                    if (i > 4) return null;
-                                    return (
-                                        <TableRow key={i}>
-                                            <TableData>
-                                                <Copy size="regular">
-                                                    {cols.time}
-                                                </Copy>
-                                            </TableData>
-                                            {cols.data.map((col, ii) => {
-                                                return (
-                                                    <TableData key={ii}>
-                                                        <Copy size="regular">
-                                                            {col}
-                                                        </Copy>
-                                                    </TableData>
-                                                );
-                                            })}
-                                        </TableRow>
-                                    );
-                                })}
+                            {timeFilteredArray.length < 3
+                                ? lastThreeItems.map(mapLastListEntries)
+                                : timeFilteredArray.map(mapListEntry)}
                             <tr></tr>
                         </tbody>
                     </Table>
@@ -156,6 +136,58 @@ const InfusionList: React.FC<{
             </Wrapper>
             <BackgroundDecorator src={BgImage} />
         </StyledSection>
+    );
+};
+
+const mapListEntry = ({ cols }: { cols: any }, i: number) => {
+    if (i > 4) return null;
+    return (
+        <TableRow key={i}>
+            <TableData>
+                <Copy size="regular">{cols.time}</Copy>
+            </TableData>
+            {cols.data.map((col: any, ii: number) => {
+                return (
+                    <TableData key={ii}>
+                        <Copy size="regular">{col}</Copy>
+                    </TableData>
+                );
+            })}
+        </TableRow>
+    );
+};
+
+const isValidTime = (_time: string) =>
+    _time &&
+    (_time === '24:00' ||
+        _time.match(/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/));
+
+const mapLastListEntries = ({ cols }: { cols: any }, i: number) => {
+    const entryTime = new Date();
+    let isActiveItem = false;
+    if (cols.time && isValidTime(cols.time)) {
+        const timeParts = cols.time.split(':');
+
+        entryTime.setHours(+timeParts[0], +timeParts[1]);
+        const currentTime = new Date();
+
+        if (isSameHour(entryTime, currentTime)) {
+            isActiveItem = true;
+        }
+    }
+    return (
+        <TableRow key={i} activeItem={isActiveItem ? i : -1}>
+            <TableData>
+                <Copy size="regular">{cols.time}</Copy>
+            </TableData>
+            {cols.data.map((col: any, ii: number) => {
+                return (
+                    <TableData key={ii}>
+                        <Copy size="regular">{col}</Copy>
+                    </TableData>
+                );
+            })}
+        </TableRow>
     );
 };
 

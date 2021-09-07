@@ -14,27 +14,27 @@ export const Default: Story = () => (
         row={[
             {
                 cols: {
+                    time: '08:00',
+                    data: [
+                        'Alle Außen Saunen | 85 – 90 °C',
+                        'Gießkannen-Aufguss',
+                        '*',
+                    ],
+                },
+            },
+            {
+                cols: {
+                    time: '09:00',
+                    data: [
+                        'Alle Außen Saunen | 85 – 90 °C',
+                        'Gießkannen-Aufguss',
+                        '*',
+                    ],
+                },
+            },
+            {
+                cols: {
                     time: '10:00',
-                    data: [
-                        'Alle Außen Saunen | 85 – 90 °C',
-                        'Gießkannen-Aufguss',
-                        '*',
-                    ],
-                },
-            },
-            {
-                cols: {
-                    time: '11:00',
-                    data: [
-                        'Alle Außen Saunen | 85 – 90 °C',
-                        'Gießkannen-Aufguss',
-                        '*',
-                    ],
-                },
-            },
-            {
-                cols: {
-                    time: '12:00',
                     data: [
                         'Alle Außen Saunen | 85 – 90 °C',
                         'Gießkannen-Aufguss',
