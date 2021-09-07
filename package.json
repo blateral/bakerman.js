@@ -1,6 +1,6 @@
 {
     "name": "bakerman",
-    "version": "1.5.2",
+    "version": "1.5.3",
     "description": "",
     "scripts": {
         "storybook": "start-storybook -p 9000 -c .storybook",
